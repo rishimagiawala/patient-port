@@ -39,7 +39,9 @@ PatientPort pp = PatientPort(patients[patient].patientContract);
 pp.addRequest(from, fromName, owner, name, address(0x58B57bd5E00a9fA04F3a474FE234496fd243dFB9), true  );
    }
 
-   
+   function getContractAddress() public returns(address){
+return(patients[msg.sender].patientContract);
+   }
 
 
 
