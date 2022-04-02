@@ -8,6 +8,7 @@ import {
   Button,
   Container,
   Heading,
+  Link,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { NavLink } from "react-router-dom";
@@ -16,6 +17,16 @@ import Logo from "../assets/Logo.jsx";
 
 const Links = ["Home", "About", "Contact"];
 const LinkURLS = ["/", "/about", "/contact"];
+
+const MyNavLink = ({ key, link, index }) => {
+  return (
+    <NavLink to={LinkURLS[index]}>
+      {({ isActive }) => (
+        <Link color={isActive ? "blue.500" : "gray.500"}>{link}</Link>
+      )}
+    </NavLink>
+  );
+};
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -45,9 +56,10 @@ const Navbar = () => {
             </HStack>
             <HStack spacing={8} display={{ base: "none", md: "flex" }}>
               {Links.map((link, index) => (
-                <NavLink key={index} to={LinkURLS[index]}>
-                  {link}
-                </NavLink>
+                <MyNavLink key={index + link} link={link} index={index} />
+                // <NavLink key={index} to={LinkURLS[index]}>
+                //   {link}
+                // </NavLink>
               ))}
               <Button colorScheme="blue">Connect Wallet</Button>
             </HStack>
