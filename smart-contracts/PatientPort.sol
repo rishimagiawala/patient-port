@@ -11,10 +11,12 @@ uint activeRequestCount = 0;
 mapping(uint => Request) activeRequestsByInt;
 mapping(address => Request) activeRequests;
 struct Request{
-    string fromName;
-    string toName;
-    address to;
     address from;
+    string fromName;
+    string fromSpecial;
+     address to;
+    string toName;
+   string toSpecial;
     address toContract;
     bool verified;
 }
@@ -26,11 +28,11 @@ constructor(string memory _name, address patientAddress, address primaryCare, ad
     primaryCareContract = PCC;
 }
 
-function addRequest(address to, string memory toName, address from, string memory fromName, address toContract, bool verified) public  {
+function addRequest(address from, string memory fromName, string memory fromSpecial, address to, string memory toName, string memory toSpecial, address toContract) public  {
     
    require(msg.sender == primaryCareContract, 'Only Primary Care Origin can add requests to Patient Port');
 
-   Request memory request = Request(fromName, toName, to, from, toContract, verified);
+   Request memory request = Request(from, fromName, fromSpecial, to, toName, toSpecial, toContract, true);
      activeRequestsByInt[activeRequestCount] = request;
      activeRequestCount++;
    
@@ -49,4 +51,8 @@ function getRequest(uint index) public view returns(Request memory){
     return activeRequestsByInt[index];
 }
 
+function updateActive(uint index) public {
+require(msg.sender == owner,'Only Patient-Owner of the contract has access' );
+activeRequestsByInt[index].verified = false;
+}
 }
