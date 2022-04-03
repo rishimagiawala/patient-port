@@ -10,11 +10,21 @@ import {
   HStack,
   useDisclosure,
 } from "@chakra-ui/react";
+import moment from "moment";
 
 import Card from "./Card";
 import Modal from "./Modal";
 
-const TransferCard = ({ requester, requesterAddress, pcpAddress, email }) => {
+const TransferCard = ({
+  pcp,
+  pcpSpecialty,
+  pcpAddress,
+  pcpEmail,
+  requester,
+  requesterAddress,
+  requesterSpecialty,
+  requesterEmail,
+}) => {
   const [modalInfo, setModalInfo] = useState({});
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -33,7 +43,8 @@ const TransferCard = ({ requester, requesterAddress, pcpAddress, email }) => {
                   setModalInfo({
                     requester,
                     requesterAddress,
-                    email,
+                    requesterSpecialty,
+                    requesterEmail,
                   });
                   onOpen();
                 }}
@@ -45,18 +56,27 @@ const TransferCard = ({ requester, requesterAddress, pcpAddress, email }) => {
                 color="blue.500"
                 onClick={() => {
                   setModalInfo({
+                    pcp,
+                    pcpSpecialty,
                     pcpAddress,
+                    pcpEmail,
                   });
                   onOpen();
                 }}
               >
-                Dr. Gupta, M.D.
+                {pcp}
               </Link>
             </Text>
             <Divider />
             <Box>
               <HStack justifyContent="space-between">
-                <Text color="gray.500">Today at 6:23 PM</Text>
+                <Text color="gray.500">
+                  {moment(
+                    new Date(
+                      +new Date() - Math.floor(Math.random() * 10000000000)
+                    )
+                  ).format("MM/DD/YYYY")}
+                </Text>
                 <Button colorScheme="green">Accept</Button>
               </HStack>
             </Box>

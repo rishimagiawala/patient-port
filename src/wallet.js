@@ -6,54 +6,44 @@ const BigNumber = require("bignumber.js");
 
 export var requestArray = [];
 
-
-
 export var testArray = [
-    [
-        "0x0b0390456BBda6b88AF3e85d81b7a098b68ec5f5",
-        "Gupta Pediatrics",
-        "Primary Care Provider",
-        "gupta.pediatrics@patientport.tech",
-        "0x31e48Ec9059978Bcbf61E79EC71b4ca66C78CF26",
-        "Michael Smith, M.D",
-        "Cardiology",
-        "micheal.smith@patientport.tech",
-        "0x31e48Ec9059978Bcbf61E79EC71b4ca66C78CF26",
-        true
-    ],
-    [
-        "0x0b0390456BBda6b88AF3e85d81b7a098b68ec5f5",
-        "Gupta Pediatrics",
-        "Primary Care Provider",
-        "gupta.pediatrics@patientport.tech",
-        "0x72c15BC5389df6c3208D888597b28b98B3A9aec7",
-        "Michael Scott, Manager",
-        "Dunder Mifflin Sales",
-        "micheal.scott@patientport.tech",
-        "0x72c15BC5389df6c3208D888597b28b98B3A9aec7",
-        true
-    ],
-    [
-        "0x0b0390456BBda6b88AF3e85d81b7a098b68ec5f5",
-        "Gupta Pediatrics",
-        "Primary Care Provider",
-        "gupta.pediatrics@patientport.tech",
-        "0x932E9EfC7e141b90dD762231E5F3632700eC1E81",
-        "Stephen Strange, M.D",
-        "Neuroscience Surgery",
-        "drstrange@patientport.tech",
-        "0x932E9EfC7e141b90dD762231E5F3632700eC1E81",
-        true
-    ]
+  [
+    "0x0b0390456BBda6b88AF3e85d81b7a098b68ec5f5",
+    "Gupta Pediatrics",
+    "Primary Care Provider",
+    "gupta.pediatrics@patientport.tech",
+    "0x31e48Ec9059978Bcbf61E79EC71b4ca66C78CF26",
+    "Michael Smith, M.D",
+    "Cardiology",
+    "micheal.smith@patientport.tech",
+    "0x31e48Ec9059978Bcbf61E79EC71b4ca66C78CF26",
+    true,
+  ],
+  [
+    "0x0b0390456BBda6b88AF3e85d81b7a098b68ec5f5",
+    "Gupta Pediatrics",
+    "Primary Care Provider",
+    "gupta.pediatrics@patientport.tech",
+    "0x72c15BC5389df6c3208D888597b28b98B3A9aec7",
+    "Michael Scott, Manager",
+    "Dunder Mifflin Sales",
+    "micheal.scott@patientport.tech",
+    "0x72c15BC5389df6c3208D888597b28b98B3A9aec7",
+    true,
+  ],
+  [
+    "0x0b0390456BBda6b88AF3e85d81b7a098b68ec5f5",
+    "Gupta Pediatrics",
+    "Primary Care Provider",
+    "gupta.pediatrics@patientport.tech",
+    "0x932E9EfC7e141b90dD762231E5F3632700eC1E81",
+    "Stephen Strange, M.D",
+    "Neuroscience Surgery",
+    "drstrange@patientport.tech",
+    "0x932E9EfC7e141b90dD762231E5F3632700eC1E81",
+    true,
+  ],
 ];
-
-
-
-
-
-
-
-
 
 export let patientPortAddress;
 export let account;
@@ -66,7 +56,7 @@ export default async function initWallet() {
   // The MetaMask plugin also allows signing transactions to
   // send ether and pay to change state within the blockchain.
   // For this, you need the account signer...
- const signer = provider.getSigner();
+  const signer = provider.getSigner();
 }
 
 export async function getPatientRequests(address) {
@@ -92,6 +82,5 @@ export async function getPatientRequests(address) {
     });
   }
 
-  console.log(await requestArray);
   return await requestArray;
 }

@@ -7,17 +7,18 @@ import {
   FormLabel,
   Text,
   Button,
+  useToast,
 } from "@chakra-ui/react";
 
 import { account } from "../wallet";
 import Sidebar from "../components/Sidebar";
 import Card from "../components/Card";
 import Breadcrumbs from "../components/Breadcrumbs";
-import { Link } from "react-router-dom";
 import { getPatientRequests } from "../wallet";
 
 const Dashboard = () => {
   const [pcpContract, setPcpContract] = useState(null);
+  const toast = useToast();
 
   useEffect(() => {
     console.log(account);
@@ -63,7 +64,16 @@ const Dashboard = () => {
             </FormControl>
             <Button
               onClick={() => {
-                getPatientRequests(pcpContract);
+                getPatientRequests(pcpContract).then((res) => {
+                  console.log(res);
+                  toast({
+                    title: "Contract Address successfully added",
+                    description: "You can now view your patient requests",
+                    status: "success",
+                    duration: 9000,
+                    isClosable: true,
+                  });
+                });
               }}
               colorScheme="blue"
               mt={4}

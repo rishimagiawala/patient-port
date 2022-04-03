@@ -30,9 +30,11 @@ const SidebarContent = ({ onClose, ...rest }) => {
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
         <Flex alignItems="center" gap={2}>
           <Logo boxSize={8} />
-          <Heading as="h4" size="md">
-            <Link to="/">patientport</Link>
-          </Heading>
+          <Link as={NavLink} to="/">
+            <Heading as="h4" size="md">
+              patientport
+            </Heading>
+          </Link>
         </Flex>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
