@@ -49,6 +49,7 @@ const NavItem = ({ icon, children, ...rest }) => {
   return (
     <Link
       as={NavLink}
+      end
       to={rest.to}
       style={{ textDecoration: "none" }}
       _focus={{ boxShadow: "none" }}
@@ -60,6 +61,7 @@ const NavItem = ({ icon, children, ...rest }) => {
           mx="4"
           borderRadius="lg"
           role="group"
+          mb={3}
           cursor="pointer"
           bg={isActive ? "blue.500" : "white"}
           color={isActive ? "white" : "gray.600"}
