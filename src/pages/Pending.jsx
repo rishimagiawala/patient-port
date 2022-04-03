@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Stack, Wrap, Text, Heading } from "@chakra-ui/react";
 import moment from "moment";
 
-import { testArray } from "../wallet";
+import { requestArray } from "../wallet";
 import TransferCard from "../components/TransferCard";
 import Sidebar from "../components/Sidebar";
 import Breadcrumbs from "../components/Breadcrumbs";
@@ -12,7 +12,7 @@ const Pending = () => {
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
-    setTransactions(testArray);
+    setTransactions(requestArray);
     console.log(transactions);
   }, [transactions]);
 
@@ -25,9 +25,12 @@ const Pending = () => {
       <Stack p={4} gap={3}>
         <Wrap spacing={8}>
           {transactions.map((transaction, index) => {
+           
             if (transaction[9] === true) {
+              console.log(index)
               return (
                 <TransferCard
+                  bobo = {index}
                   key={index}
                   pcp={transaction[1]}
                   pcpSpecialty={transaction[2]}

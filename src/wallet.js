@@ -45,6 +45,7 @@ export var testArray = [
   ],
 ];
 
+export let ppcontract;
 export let patientPortAddress;
 export let account;
 export default async function initWallet() {
@@ -60,6 +61,7 @@ export default async function initWallet() {
 }
 
 export async function getPatientRequests(address) {
+ppcontract = address;
   var requestCount;
 
   const getPatientContract = () => {
@@ -83,4 +85,29 @@ export async function getPatientRequests(address) {
   }
 
   return await requestArray;
+  console.log(await requestArray)
+}
+
+export function updateRequestActive(index){
+   console.log(index);
+
+    const getPatientContract = () => {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(ppcontract, PatientPortABI, signer);
+      return contract;
+    };
+  
+    var contract = getPatientContract()
+
+    contract.updateActive(index).then(()=>{
+
+    getPatientRequests(ppcontract)
+
+    })
+  
+   
+  
+   
+
 }

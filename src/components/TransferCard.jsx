@@ -13,8 +13,11 @@ import {
 
 import Card from "./Card";
 import Modal from "./Modal";
+import { updateRequestActive } from "../wallet";
 
 const TransferCard = ({
+  bobo,
+  key,
   pcp,
   pcpSpecialty,
   pcpAddress,
@@ -71,7 +74,10 @@ const TransferCard = ({
             <Box>
               <HStack justifyContent="space-between">
                 <Text color="gray.500">{time}</Text>
-                <Button colorScheme="green">Accept</Button>
+                <Button onClick={()=>{
+                  updateRequestActive(bobo)
+                  console.log('This is' + bobo)
+                }} colorScheme="green">Accept</Button>
               </HStack>
             </Box>
           </Stack>
