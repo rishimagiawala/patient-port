@@ -20,7 +20,10 @@ const Links = ["Home"];
 const LinkURLS = ["/", "/about", "/contact"];
 
 const ExternalLinks = ["About", "Github"];
-const ExternalLinkUrls = ["", "https://github.com/rishimagiawala/patient-port"];
+const ExternalLinkUrls = [
+  "https://devpost.com/software/patientport",
+  "https://github.com/rishimagiawala/patient-port",
+];
 
 const externalLink = ({ link, index }) => {
   return (
