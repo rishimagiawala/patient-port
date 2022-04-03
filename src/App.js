@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Dashboard from "./pages/Dashboard";
 import Pending from "./pages/Pending";
+import History from "./pages/History";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route exact path="dashboard">
             <Route index element={<Dashboard />} />
             <Route path="pending" element={<Pending />} />
+            <Route path="history" element={<History />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Divider,
-  Heading,
   Text,
   Badge,
   Stack,
@@ -15,9 +14,9 @@ import {
 import Card from "./Card";
 import Modal from "./Modal";
 
-const TransferCard = () => {
+const TransferCard = ({ requester, requesterAddress, pcpAddress, email }) => {
+  const [modalInfo, setModalInfo] = useState({});
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { isOpen2, onOpen2, onClose2 } = useDisclosure();
 
   return (
     <>
@@ -28,11 +27,29 @@ const TransferCard = () => {
               <Badge colorScheme="blue">Pending</Badge>
             </Box>
             <Text>
-              <Link color="blue.500" onClick={isOpen ? onClose : onOpen}>
-                Dr. Mark, M.D.
+              <Link
+                color="blue.500"
+                onClick={() => {
+                  setModalInfo({
+                    requester,
+                    requesterAddress,
+                    email,
+                  });
+                  onOpen();
+                }}
+              >
+                {requester}
               </Link>{" "}
               has requested your record from{" "}
-              <Link color="blue.500" onClick={isOpen2 ? onClose2 : onOpen2}>
+              <Link
+                color="blue.500"
+                onClick={() => {
+                  setModalInfo({
+                    pcpAddress,
+                  });
+                  onOpen();
+                }}
+              >
                 Dr. Gupta, M.D.
               </Link>
             </Text>
@@ -40,19 +57,13 @@ const TransferCard = () => {
             <Box>
               <HStack justifyContent="space-between">
                 <Text color="gray.500">Today at 6:23 PM</Text>
-                <HStack gap={1}>
-                  <Button colorScheme="red" variant="outline">
-                    Deny
-                  </Button>
-                  <Button colorScheme="green">Accept</Button>
-                </HStack>
+                <Button colorScheme="green">Accept</Button>
               </HStack>
             </Box>
           </Stack>
         </Card>
       </Box>
-      <Modal isOpen={isOpen} onClose={onClose} />
-      <Modal isOpen={isOpen2} onClose={onClose2} />
+      <Modal isOpen={isOpen} onClose={onClose} info={modalInfo} />
     </>
   );
 };
