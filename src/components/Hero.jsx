@@ -29,7 +29,7 @@ const Hero = () => {
           <Stack justifyContent="center" gap={8}>
             <Box maxW="50ch">
               <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
-                Decentralized and secure
+                Connecting smart contracts to healthcare
               </Heading>
             </Box>
             <Stack direction="row" gap={8}>
