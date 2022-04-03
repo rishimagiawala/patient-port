@@ -32,6 +32,13 @@ const TransferCard = ({
   const [modalInfo, setModalInfo] = useState({});
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleClick = () => {
+    updateRequestActive(bobo);
+    setIsLoading(true);
+  };
+
   return (
     <>
       <Box maxW="md">
@@ -82,10 +89,9 @@ const TransferCard = ({
               <HStack justifyContent="space-between">
                 <Text color="gray.500">{time}</Text>
                 <Button
-                  onClick={() => {
-                    updateRequestActive(bobo);
-                    console.log("This is" + bobo);
-                  }}
+                  onClick={handleClick}
+                  isDisabled={isLoading}
+                  isLoading={isLoading}
                   colorScheme="green"
                   display={buttonTF ? "flex" : "none"}
                 >
