@@ -11,7 +11,7 @@ import {
   useDisclosure,
   Heading,
 } from "@chakra-ui/react";
-import { FaHome, FaUserClock, FaHistory } from "react-icons/fa";
+import { FaHome, FaUserClock } from "react-icons/fa";
 
 import Logo from "../assets/Logo.jsx";
 
@@ -21,7 +21,6 @@ import { NavLink } from "react-router-dom";
 const LinkItems = [
   { name: "Home", icon: FaHome, path: "/dashboard" },
   { name: "Pending Requests", icon: FaUserClock, path: "/dashboard/pending" },
-  { name: "History", icon: FaHistory, path: "/dashboard/history" },
 ];
 
 const SidebarContent = ({ onClose, ...rest }) => {

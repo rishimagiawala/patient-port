@@ -6,18 +6,14 @@ import {
   FormControl,
   FormLabel,
   Text,
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  Box,
   Button,
 } from "@chakra-ui/react";
-import { ChevronRightIcon } from "@chakra-ui/icons";
 
 import { account } from "../wallet";
 import Sidebar from "../components/Sidebar";
 import Card from "../components/Card";
-import { Link } from "react-router-dom";
+
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const Dashboard = () => {
   const [pcpContract, setPcpContract] = useState(null);
@@ -36,20 +32,7 @@ const Dashboard = () => {
   return (
     <>
       <Sidebar>
-        <Box pl={4}>
-          <Breadcrumb separator={<ChevronRightIcon color="gray.500" />}>
-            <BreadcrumbItem>
-              <BreadcrumbLink as={Link} to="/">
-                Home
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbItem isCurrentPage>
-              <BreadcrumbLink as={Link} to="/dashboard">
-                Dashboard
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-          </Breadcrumb>
-        </Box>
+        <Breadcrumbs links={["Home", "Dashboard"]} />
         <Stack p={4} gap={3}>
           <Card>
             <Stack gap={3}>
