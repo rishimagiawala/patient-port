@@ -1,6 +1,7 @@
 /* eslint-disable array-callback-return */
 import React, { useState, useEffect } from "react";
-import { Stack, Wrap, Text } from "@chakra-ui/react";
+import { Stack, Wrap, Text, Heading } from "@chakra-ui/react";
+import moment from "moment";
 
 import { testArray } from "../wallet";
 import TransferCard from "../components/TransferCard";
@@ -18,6 +19,9 @@ const Pending = () => {
   return (
     <Sidebar>
       <Breadcrumbs links={["Home", "Dashboard", "Pending Requests"]} />
+      <Heading mt={8} ml={4}>
+        Your requests
+      </Heading>
       <Stack p={4} gap={3}>
         <Wrap spacing={8}>
           {transactions.map((transaction, index) => {
@@ -33,6 +37,11 @@ const Pending = () => {
                   requesterAddress={transaction[4]}
                   requesterSpecialty={transaction[6]}
                   requesterEmail={transaction[7]}
+                  time={moment(
+                    new Date(
+                      +new Date() - Math.floor(Math.random() * 10000000000)
+                    )
+                  ).format("llll")}
                 />
               );
             }

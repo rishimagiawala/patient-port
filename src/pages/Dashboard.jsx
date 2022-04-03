@@ -38,7 +38,7 @@ const Dashboard = () => {
         <Stack p={4} gap={3}>
           <Card>
             <Stack gap={3}>
-              <Heading>Welcome to your Patient Portal.</Heading>
+              <Heading>Welcome to Your Patient Dashboard.</Heading>
               <Text>
                 Your wallet address is{" "}
                 {account ? (
@@ -53,7 +53,7 @@ const Dashboard = () => {
           </Card>
           <Card>
             <FormControl>
-              <FormLabel>Input Your Patient Portal Contract Address</FormLabel>
+              <FormLabel>Input Your patientport Contract Address</FormLabel>
               <Input
                 placeholder="Contract Address"
                 maxW="lg"

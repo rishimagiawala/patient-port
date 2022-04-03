@@ -10,7 +10,6 @@ import {
   HStack,
   useDisclosure,
 } from "@chakra-ui/react";
-import moment from "moment";
 
 import Card from "./Card";
 import Modal from "./Modal";
@@ -24,6 +23,7 @@ const TransferCard = ({
   requesterAddress,
   requesterSpecialty,
   requesterEmail,
+  time,
 }) => {
   const [modalInfo, setModalInfo] = useState({});
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -70,13 +70,7 @@ const TransferCard = ({
             <Divider />
             <Box>
               <HStack justifyContent="space-between">
-                <Text color="gray.500">
-                  {moment(
-                    new Date(
-                      +new Date() - Math.floor(Math.random() * 10000000000)
-                    )
-                  ).format("MM/DD/YYYY")}
-                </Text>
+                <Text color="gray.500">{time}</Text>
                 <Button colorScheme="green">Accept</Button>
               </HStack>
             </Box>
