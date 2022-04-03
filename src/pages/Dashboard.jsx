@@ -18,6 +18,7 @@ import { account } from "../wallet";
 import Sidebar from "../components/Sidebar";
 import Card from "../components/Card";
 import { Link } from "react-router-dom";
+import { getPatientRequests } from "../wallet";
 
 const Dashboard = () => {
   const [pcpContract, setPcpContract] = useState(null);
@@ -69,17 +70,20 @@ const Dashboard = () => {
           <Card>
             <FormControl>
               <FormLabel>
-                Input the Contract Address of your Primary Care Provider (PCP)
+                Input Your Patient Portal Contract Address
               </FormLabel>
               <Input
                 placeholder="Contract Address"
                 maxW="lg"
                 onChange={(e) => {
                   setPcpContract(e.target.value);
+                  
                 }}
               />
             </FormControl>
-            <Button colorScheme="blue" mt={4}>
+            <Button onClick={()=>{
+              getPatientRequests(pcpContract)
+            }} colorScheme="blue" mt={4}>
               Submit
             </Button>
           </Card>
