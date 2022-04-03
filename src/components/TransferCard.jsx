@@ -27,6 +27,7 @@ const TransferCard = ({
   requesterSpecialty,
   requesterEmail,
   time,
+  buttonTF,
 }) => {
   const [modalInfo, setModalInfo] = useState({});
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -74,10 +75,16 @@ const TransferCard = ({
             <Box>
               <HStack justifyContent="space-between">
                 <Text color="gray.500">{time}</Text>
-                <Button onClick={()=>{
-                  updateRequestActive(bobo)
-                  console.log('This is' + bobo)
-                }} colorScheme="green">Accept</Button>
+                <Button
+                  onClick={() => {
+                    updateRequestActive(bobo);
+                    console.log("This is" + bobo);
+                  }}
+                  colorScheme="green"
+                  display={buttonTF ? "flex" : "none"}
+                >
+                  Accept
+                </Button>
               </HStack>
             </Box>
           </Stack>

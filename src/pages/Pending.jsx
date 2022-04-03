@@ -25,12 +25,11 @@ const Pending = () => {
       <Stack p={4} gap={3}>
         <Wrap spacing={8}>
           {transactions.map((transaction, index) => {
-           
             if (transaction[9] === true) {
-              console.log(index)
+              console.log(index);
               return (
                 <TransferCard
-                  bobo = {index}
+                  bobo={index}
                   key={index}
                   pcp={transaction[1]}
                   pcpSpecialty={transaction[2]}
@@ -45,6 +44,7 @@ const Pending = () => {
                       +new Date() - Math.floor(Math.random() * 10000000000)
                     )
                   ).format("llll")}
+                  buttonTF={true}
                 />
               );
             }
