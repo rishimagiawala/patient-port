@@ -8,10 +8,19 @@ import {
   Flex,
   Box,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 import Doctor from "../assets/doctor.svg";
+import initWallet from "../wallet";
 
 const Hero = () => {
+  let navigate = useNavigate();
+
+  const connectWallet = async () => {
+    await initWallet();
+    navigate("/dashboard");
+  };
+
   return (
     <Container maxW="container.xl">
       <Stack direction={{ base: "column", md: "row" }} py={8}>
@@ -23,7 +32,7 @@ const Hero = () => {
               </Heading>
             </Box>
             <Stack direction="row" gap={8}>
-              <Button colorScheme="blue" p={4}>
+              <Button colorScheme="blue" p={4} onClick={connectWallet}>
                 Connect Wallet
               </Button>
               <Button variant="link">Learn More</Button>
