@@ -7,6 +7,7 @@ import {
   Image,
   Flex,
   Box,
+  Link,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
@@ -35,7 +36,13 @@ const Hero = () => {
               <Button colorScheme="blue" p={4} onClick={connectWallet}>
                 Connect Wallet
               </Button>
-              <Button variant="link">Learn More</Button>
+              <Button
+                as={Link}
+                variant="link"
+                href="https://devpost.com/software/patientport"
+              >
+                Learn More
+              </Button>
             </Stack>
           </Stack>
         </Flex>
