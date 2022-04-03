@@ -9,6 +9,7 @@ import {
   Container,
   Heading,
   Link,
+  VStack,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -94,6 +95,22 @@ const Navbar = () => {
           </HStack>
         </Flex>
       </Container>
+
+      {isOpen ? (
+        <Box pb={4} display={{ md: "none" }}>
+          <VStack as={"nav"} spacing={4} alignItems="left">
+            {Links.map((link, index) => (
+              <MyNavLink key={link} link={link} index={index} />
+            ))}
+            {ExternalLinks.map((link, index) => externalLink({ link, index }))}
+            <Box>
+              <Button colorScheme="blue" p={4} onClick={connectWallet}>
+                Connect Wallet
+              </Button>
+            </Box>
+          </VStack>
+        </Box>
+      ) : null}
     </Box>
   );
 };
