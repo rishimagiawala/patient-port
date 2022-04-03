@@ -61,6 +61,7 @@ export default async function initWallet() {
 }
 
 export async function getPatientRequests(address) {
+    requestArray = [];
 ppcontract = address;
   var requestCount;
 
