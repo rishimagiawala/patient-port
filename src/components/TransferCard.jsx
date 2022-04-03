@@ -38,7 +38,11 @@ const TransferCard = ({
         <Card>
           <Stack gap={3}>
             <Box>
-              <Badge colorScheme="blue">Pending</Badge>
+              {buttonTF ? (
+                <Badge colorScheme="blue">Pending</Badge>
+              ) : (
+                <Badge colorScheme="green">Completed</Badge>
+              )}
             </Box>
             <Text>
               <Link
@@ -55,7 +59,9 @@ const TransferCard = ({
               >
                 {requester}
               </Link>{" "}
-              has requested your record from{" "}
+              {buttonTF
+                ? "requested your record from "
+                : "has receieved your record from "}
               <Link
                 color="blue.500"
                 onClick={() => {
