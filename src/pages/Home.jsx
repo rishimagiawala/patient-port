@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Section from "../components/Section";
 import Security from "../assets/security.svg";
-import Card from "../components/Card";
+import IconCard from "../components/IconCard";
 import Footer from "../components/Footer";
 
 const Home = () => {
@@ -41,7 +41,11 @@ const Home = () => {
           <Wrap spacing={8}>
             {["Secure", "Private", "Decentralized"].map((text, index) => (
               <Box>
-                <Card key={index + text} icon={icons[index]} heading={text} />
+                <IconCard
+                  key={index + text}
+                  icon={icons[index]}
+                  heading={text}
+                />
               </Box>
             ))}
           </Wrap>

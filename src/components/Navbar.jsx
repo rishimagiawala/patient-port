@@ -57,9 +57,6 @@ const Navbar = () => {
             <HStack spacing={8} display={{ base: "none", md: "flex" }}>
               {Links.map((link, index) => (
                 <MyNavLink key={index + link} link={link} index={index} />
-                // <NavLink key={index} to={LinkURLS[index]}>
-                //   {link}
-                // </NavLink>
               ))}
               <Button colorScheme="blue">Connect Wallet</Button>
             </HStack>
