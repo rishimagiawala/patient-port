@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Stack,
   Input,
@@ -10,6 +10,7 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   Box,
+  Button,
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
@@ -19,9 +20,12 @@ import Card from "../components/Card";
 import { Link } from "react-router-dom";
 
 const Dashboard = () => {
+  const [pcpContract, setPcpContract] = useState(null);
+
   useEffect(() => {
     console.log(account);
-  }, []);
+    console.log(pcpContract);
+  }, [pcpContract]);
 
   const abbreviateAddress = (address) => {
     return (
@@ -64,9 +68,20 @@ const Dashboard = () => {
           </Card>
           <Card>
             <FormControl>
-              <FormLabel>Input your Wallet Hash</FormLabel>
-              <Input placeholder="Wallet Hash" maxW="lg" />
+              <FormLabel>
+                Input the Contract Address of your Primary Care Provider (PCP)
+              </FormLabel>
+              <Input
+                placeholder="Contract Address"
+                maxW="lg"
+                onChange={(e) => {
+                  setPcpContract(e.target.value);
+                }}
+              />
             </FormControl>
+            <Button colorScheme="blue" mt={4}>
+              Submit
+            </Button>
           </Card>
         </Stack>
       </Sidebar>
