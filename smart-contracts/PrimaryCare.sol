@@ -19,7 +19,7 @@ struct Patient{
 
 constructor(string memory _name) public {
     owner = msg.sender;
-    _name = name;
+   name = _name;
     
 }
 
@@ -33,10 +33,10 @@ patients[patient] = patientToAdd;
    
    }
 
-   function sendRecordRequest(address patient, address from, address fromContract, string memory fromName) public{
+   function sendRecordRequest(address patient, address to, string memory toName,string memory toSpecial, string memory toEmail, address toContract ) public{
 PatientPort pp = PatientPort(patients[patient].patientContract);
 
-pp.addRequest(from, fromName, owner, name, address(0x58B57bd5E00a9fA04F3a474FE234496fd243dFB9), true  );
+pp.addRequest(owner, name, 'Primary Care Provider', 'gupta.pediatrics@patientport.tech',to, toName, toSpecial, toEmail, toContract  );
    }
 
    function getContractAddress() public returns(address){

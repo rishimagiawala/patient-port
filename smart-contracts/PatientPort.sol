@@ -14,9 +14,11 @@ struct Request{
     address from;
     string fromName;
     string fromSpecial;
+    string fromEmail;
      address to;
     string toName;
    string toSpecial;
+   string toEmail;
     address toContract;
     bool verified;
 }
@@ -28,11 +30,11 @@ constructor(string memory _name, address patientAddress, address primaryCare, ad
     primaryCareContract = PCC;
 }
 
-function addRequest(address from, string memory fromName, string memory fromSpecial, address to, string memory toName, string memory toSpecial, address toContract) public  {
+function addRequest(address from, string memory fromName, string memory fromSpecial,string memory fromEmail, address to, string memory toName, string memory toSpecial, string memory toEmail, address toContract) public  {
     
    require(msg.sender == primaryCareContract, 'Only Primary Care Origin can add requests to Patient Port');
 
-   Request memory request = Request(from, fromName, fromSpecial, to, toName, toSpecial, toContract, true);
+   Request memory request = Request(from, fromName, fromSpecial,fromEmail, to, toName, toSpecial,toEmail, toContract, true);
      activeRequestsByInt[activeRequestCount] = request;
      activeRequestCount++;
    

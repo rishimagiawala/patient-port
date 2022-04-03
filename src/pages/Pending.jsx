@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Stack, Wrap } from "@chakra-ui/react";
 
-import { testArray } from "../wallet";
+import { requestArray } from "../wallet";
 import TransferCard from "../components/TransferCard";
 import Sidebar from "../components/Sidebar";
 import Breadcrumbs from "../components/Breadcrumbs";
@@ -10,7 +10,7 @@ const Pending = () => {
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
-    setTransactions(testArray);
+    setTransactions(requestArray);
   }, []);
 
   return (
