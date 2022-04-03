@@ -11,14 +11,31 @@ import {
   Link,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import Logo from "../assets/Logo.jsx";
+import initWallet from "../wallet";
 
-const Links = ["Home", "About", "Contact"];
+const Links = ["Home"];
 const LinkURLS = ["/", "/about", "/contact"];
 
-const MyNavLink = ({ key, link, index }) => {
+const ExternalLinks = ["About", "Github"];
+const ExternalLinkUrls = ["", "https://github.com/rishimagiawala/patient-port"];
+
+const externalLink = ({ link, index }) => {
+  return (
+    <Link
+      key={index}
+      href={ExternalLinkUrls[index]}
+      isExternal
+      color="gray.500"
+    >
+      {link}
+    </Link>
+  );
+};
+
+const MyNavLink = ({ link, index }) => {
   return (
     <NavLink to={LinkURLS[index]}>
       {({ isActive }) => (
@@ -30,6 +47,12 @@ const MyNavLink = ({ key, link, index }) => {
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  let navigate = useNavigate();
+
+  const connectWallet = async () => {
+    await initWallet();
+    navigate("/dashboard");
+  };
 
   return (
     <Box px={4}>
@@ -58,7 +81,12 @@ const Navbar = () => {
               {Links.map((link, index) => (
                 <MyNavLink key={index + link} link={link} index={index} />
               ))}
-              <Button colorScheme="blue">Connect Wallet</Button>
+              {ExternalLinks.map((link, index) =>
+                externalLink({ link, index })
+              )}
+              <Button colorScheme="blue" p={4} onClick={connectWallet}>
+                Connect Wallet
+              </Button>
             </HStack>
           </HStack>
         </Flex>

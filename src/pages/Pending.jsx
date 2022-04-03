@@ -13,7 +13,6 @@ const Pending = () => {
 
   useEffect(() => {
     setTransactions(requestArray);
-    console.log(transactions);
   }, [transactions]);
 
   return (
@@ -26,7 +25,6 @@ const Pending = () => {
         <Wrap spacing={8}>
           {transactions.map((transaction, index) => {
             if (transaction[9] === true) {
-              console.log(index);
               return (
                 <TransferCard
                   bobo={index}

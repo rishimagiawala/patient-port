@@ -1,5 +1,6 @@
+/* eslint-disable array-callback-return */
 import React, { useState, useEffect } from "react";
-import { Stack, Wrap, Text } from "@chakra-ui/react";
+import { Stack, Wrap, Text, Heading } from "@chakra-ui/react";
 import moment from "moment";
 import TransferCard from "../components/TransferCard";
 import Sidebar from "../components/Sidebar";
@@ -11,17 +12,18 @@ const History = () => {
 
   useEffect(() => {
     setTransactions(requestArray);
-    console.log(transactions);
   }, [transactions]);
 
   return (
     <Sidebar>
       <Breadcrumbs links={["Home", "Dashboard", "History"]} />
+      <Heading mt={8} ml={4}>
+        History
+      </Heading>
       <Stack p={4} gap={3}>
         <Wrap spacing={8}>
           {transactions.map((transaction, index) => {
             if (transaction[9] === false) {
-              console.log(index);
               return (
                 <TransferCard
                   bobo={index}

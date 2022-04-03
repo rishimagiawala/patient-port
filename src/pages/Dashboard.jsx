@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import {
   Stack,
   Input,
@@ -11,46 +10,26 @@ import {
   useToast,
 } from "@chakra-ui/react";
 
-//import { account } from "../wallet";
 import Sidebar from "../components/Sidebar";
 import Card from "../components/Card";
 import Breadcrumbs from "../components/Breadcrumbs";
 import { getPatientRequests } from "../wallet";
 import { ethers } from "ethers";
+
 const Dashboard = () => {
   const [pcpContract, setPcpContract] = useState(null);
-  const [account, setAccount] = useState()
+  const [account, setAccount] = useState();
   const toast = useToast();
 
-  async function addressTitle(){
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    return provider.send("eth_requestAccounts", []);
-  }
-
   useEffect(() => {
-    
-
     const fetchAddress = async () => {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const data = provider.send("eth_requestAccounts", []);
-      return await data
-    }
-  
-    // call the function
-    fetchAddress().then((result)=>{
-      setAccount(result)
-    })
-      // make sure to catch any error
-      
-
-
-
-
-
-    // MetaMask requires requesting permission to connect users accounts
-   
-    console.log(account);
-    console.log(pcpContract);
+      return await data;
+    };
+    fetchAddress().then((result) => {
+      setAccount(result);
+    });
   }, [pcpContract]);
 
   const abbreviateAddress = (address) => {
@@ -93,7 +72,6 @@ const Dashboard = () => {
             <Button
               onClick={() => {
                 getPatientRequests(pcpContract).then((res) => {
-                  console.log(res);
                   toast({
                     title: "Contract Address successfully added",
                     description: "You can now view your patient requests",
