@@ -1,20 +1,39 @@
 Primary Care Provider Address:
 0x0b0390456BBda6b88AF3e85d81b7a098b68ec5f5
 
-Primary Care Provider Contract:
+Primary Care Provider Contract Address:
 0xcd408D287C42DaC98F0c2AFa451187ccd372Fb51
 
 Patient Address:
 0xe59C16d535B4c6847f1b1d352b4b60C60e4D62b0
 
-Patient Contract:
+Patient Contract Address:
 0x98B1C2D9254FCa43ada311620C405555fE6B579a
 
 
+Note:
 
-Mark Cardiologist Address:
-0x31e48Ec9059978Bcbf61E79EC71b4ca66C78CF26
+Contracts were deployed before demo in
+order to comply with video time limit.
 
+Contract addresses and corresponding
+keys are shown above. 
+
+
+
+HealthCare Resource:
+0x136B840253de015C7dCe0b085896d92c5545414B
+
+Resource Contract:
+0x65686337971AE33889FEef4c8c6b7B00657a8E80
+
+
+
+
+Patient Record CID:
+QmPmWr9K37CTZrm1f3MwUBZV2QA2CrXhFLMpANVSnsjweY
+
+ipfs.infura.io/ipfs/QmPmWr9K37CTZrm1f3MwUBZV2QA2CrXhFLMpANVSnsjweY
 
 
 
