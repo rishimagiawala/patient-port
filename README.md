@@ -10,7 +10,7 @@ To combat this risk, we created Patientport as a decentralized and secure soluti
 
 Patientport is a decentralized, secure, and open medical record solution. It is built on the Ethereum blockchain and securely stores all of your medical record requests, responses, and exchanges through smart contracts. Your medical data is encrypted and stored on the blockchain. 
 
-By accessing the powerful web application online through [patientport.tech](patientport.tech), the patient can gain access to all these features. 
+By accessing the powerful web application online through [patientport.tech](https://www.patientport.tech/), the patient can gain access to all these features. 
 
 First, on the website, the patient authenticates to the blockchain via MetaMask, and provides the contract address that was provided to them from their primary care provider.
 
