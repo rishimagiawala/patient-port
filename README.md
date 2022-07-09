@@ -1,4 +1,20 @@
-![patientport logo](https://i.imgur.com/qWsX4Yw.png)
+# ![patientport logo](https://i.imgur.com/qWsX4Yw.png)
+
+```shell
+# repository structure
+├── apps
+│   ├── client
+│   └── smart-contracts
+├── packages
+│   └── eslint-config-custom
+├── .github
+├── .eslintrc.js
+├── gitignore
+├── package.json
+├── README.md
+├── turbo.json
+└── yarn.lock
+```
 
 ## 💡 Inspiration
 
@@ -8,9 +24,9 @@ To combat this risk, we created Patientport as a decentralized and secure soluti
 
 ## 💻 What it does
 
-Patientport is a decentralized, secure, and open medical record solution. It is built on the Ethereum blockchain and securely stores all of your medical record requests, responses, and exchanges through smart contracts. Your medical data is encrypted and stored on the blockchain. 
+Patientport is a decentralized, secure, and open medical record solution. It is built on the Ethereum blockchain and securely stores all of your medical record requests, responses, and exchanges through smart contracts. Your medical data is encrypted and stored on the blockchain.
 
-By accessing the powerful web application online through [patientport.tech](https://www.patientport.tech/), the patient can gain access to all these features. 
+By accessing the powerful web application online through [patientport.tech](https://www.patientport.tech/), the patient can gain access to all these features.
 
 First, on the website, the patient authenticates to the blockchain via MetaMask, and provides the contract address that was provided to them from their primary care provider.
 
@@ -57,24 +73,24 @@ However, anyone can compile and deploy the smart contracts on the Ethereum mainn
 
 ## 🧠 Challenges we ran into
 
-* Implementation of blockchain and smart contracts was very difficult, especially since the web3.js API was incompatible with the latest version of react, so we had to switch to a new, unfamiliar library, ethers.
-* We ran into many bugs and unfamiliar behavior when coding the smart contracts with Solidity due to our lack of experience with it.
-* Despite our goals and aspirations for the project, we had to settle to build a viable product quickly within the timeframe.
+- Implementation of blockchain and smart contracts was very difficult, especially since the web3.js API was incompatible with the latest version of react, so we had to switch to a new, unfamiliar library, ethers.
+- We ran into many bugs and unfamiliar behavior when coding the smart contracts with Solidity due to our lack of experience with it.
+- Despite our goals and aspirations for the project, we had to settle to build a viable product quickly within the timeframe.
 
 ## 🏅 Accomplishments that we're proud of
 
-* Implementing a working and functioning prototype of our idea
-* Designing and developing a minimalist and clean user interface through a new UI library and reusable components with a integrated design
-* Working closely with Solidity and MetaMask to make an application that interfaces directly with the Ethereum blockchain
-* Creating and deploying smart contracts that communicate with each other and store patient data securely
+- Implementing a working and functioning prototype of our idea
+- Designing and developing a minimalist and clean user interface through a new UI library and reusable components with a integrated design
+- Working closely with Solidity and MetaMask to make an application that interfaces directly with the Ethereum blockchain
+- Creating and deploying smart contracts that communicate with each other and store patient data securely
 
 ## 📖 What we learned
 
-* How to work with the blockchain and smart contracts to make decentralized transactions that can accurately record and encrypt/decrypt transactions
-* How to work together and collaborate with developers in a remote environment via Github
-* How to use React to develop a fully-featured web application that users can access and interact with
+- How to work with the blockchain and smart contracts to make decentralized transactions that can accurately record and encrypt/decrypt transactions
+- How to work together and collaborate with developers in a remote environment via Github
+- How to use React to develop a fully-featured web application that users can access and interact with
 
 ## 🚀 What's next for patientport
 
-* Implementing more features, data, and information into patientport via a more robust smart contract and blockchain connections
-* Developing a solution for medical professionals to handle their patients’ data with patientport through a simplified interface of the blockchain wallet
+- Implementing more features, data, and information into patientport via a more robust smart contract and blockchain connections
+- Developing a solution for medical professionals to handle their patients’ data with patientport through a simplified interface of the blockchain wallet
