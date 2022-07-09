@@ -1,0 +1,12 @@
+{
+  "name": "@patient-port/smart-contracts",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "lint": "solhint  -f table src/**/*.sol",
+    "format": "prettier --write --config .prettierrc.json src/**/*.sol"
+  },
+  "devDependencies": {
+    "solhint": "^3.3.7"
+  }
+}
